@@ -1,0 +1,16 @@
+.text {
+    color: white;
+}
+
+.text img{
+    width: 20px;
+}
+
+.item{
+    padding: 5px;
+}
+
+.scores {
+    color: white;
+    font-size: 15px;
+}

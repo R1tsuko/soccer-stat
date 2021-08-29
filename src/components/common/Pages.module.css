@@ -1,0 +1,8 @@
+.pageLink a{
+    text-decoration: none;
+    color: white;
+}
+.pageLink:hover a, .pageLink a.active{
+    text-decoration:underline;
+    color: #da7b93;
+}

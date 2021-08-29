@@ -1,0 +1,10 @@
+.link a {
+  background-color: #2e151b;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 5px;
+}

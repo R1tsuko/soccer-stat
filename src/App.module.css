@@ -1,0 +1,10 @@
+.appWrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.content {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  font-size: 20px;
+}

@@ -1,0 +1,25 @@
+.dateInput {
+  width: 100px;
+  height: 25px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #2e151b;
+  font-size: 15px;
+  text-align: center;
+  color: white;
+}
+.dateInput:focus {
+  border-bottom: 1px solid #da7b93;
+}
+.searchButton {
+  width: 20px;
+  background: none;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.searchButton img {
+  width: 20px;
+}

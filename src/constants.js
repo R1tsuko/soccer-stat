@@ -1,0 +1,3 @@
+export const ITEMS_ON_CALENDAR_PAGE = 20;
+export const ITEMS_ON_TEAMS_LIST_PAGE = 20;
+export const ITEMS_ON_LEAGUES_LIST_PAGE = 20;

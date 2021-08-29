@@ -1,0 +1,12 @@
+.header {
+    background-color: #2E151B;
+    height: 40px;
+}
+
+.home{
+    float: left;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+}
+
