@@ -2,43 +2,37 @@ import React from 'react';
 import classes from './CalendarItem.module.css';
 
 const LeaguesCalendarItem = (props) => {
+  const score = props.match.score;
   return (
     <div className={classes.item}>
       <div className={classes.text}>
-        {props.match.homeTeam.name} vs {props.match.awayTeam.name}
+        {props.match.homeTeam.name}{' '}
+        <span className={classes.mainScore}>
+          {score.fullTime.homeTeam + score.extraTime.homeTeam}:
+          {score.fullTime.awayTeam + score.extraTime.awayTeam}
+        </span>{' '}
+        {props.match.awayTeam.name}
       </div>
       <div className={classes.text}>start: {props.match.utcDate}</div>
       <div className={classes.scores}>
         <span>
-          {props.match.score.halfTime.homeTeam === null ? '-' : props.match.score.halfTime.awayTeam}
-          :
-          {props.match.score.halfTime.homeTeam === null ? '-' : props.match.score.halfTime.awayTeam}
+          {score.halfTime.homeTeam === null ? '-' : score.halfTime.homeTeam}:
+          {score.halfTime.awayTeam === null ? '-' : score.halfTime.awayTeam}
         </span>
         {'  '}
         <span>
-          {props.match.score.fullTime.homeTeam === null ? '-' : props.match.score.fullTime.awayTeam}
-          :
-          {props.match.score.fullTime.homeTeam === null ? '-' : props.match.score.fullTime.awayTeam}
+          {score.fullTime.homeTeam === null ? '-' : score.fullTime.homeTeam}:
+          {score.fullTime.awayTeam === null ? '-' : score.fullTime.awayTeam}
         </span>
         {'  '}
         <span>
-          {props.match.score.extraTime.homeTeam === null
-            ? '-'
-            : props.match.score.extraTime.awayTeam}
-          :
-          {props.match.score.extraTime.homeTeam === null
-            ? '-'
-            : props.match.score.extraTime.awayTeam}
+          {score.extraTime.homeTeam === null ? '-' : score.extraTime.homeTeam}:
+          {score.extraTime.awayTeam === null ? '-' : score.extraTime.awayTeam}
         </span>
         {'  '}
         <span>
-          {props.match.score.penalties.homeTeam === null
-            ? '-'
-            : props.match.score.penalties.awayTeam}
-          :
-          {props.match.score.penalties.homeTeam === null
-            ? '-'
-            : props.match.score.penalties.awayTeam}
+          {score.penalties.homeTeam === null ? '-' : score.penalties.homeTeam}:
+          {score.penalties.awayTeam === null ? '-' : score.penalties.awayTeam}
         </span>
       </div>
     </div>

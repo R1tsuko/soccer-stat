@@ -1,12 +1,10 @@
-import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ITEMS_ON_LEAGUES_LIST_PAGE } from '../../../constants';
 import useQuery from '../../../hooks/useQuery';
 import {
+  getCompetitionsThunk,
   selectLeagues,
-  setIsFetching,
-  setLeaguesData,
   setLeaguesSearchResult,
 } from '../../../slices/listSlice';
 import LinkButton from '../../common/LinkButton/LinkButton';
@@ -38,23 +36,12 @@ const LeaguesList = (props) => {
   const leaguesArr = leagues.map((league) => <LeaguesListItem league={league} key={league.id} />);
 
   useEffect(() => {
-    dispatch(setIsFetching(true));
-    axios
-      .get('http://api.football-data.org/v2/competitions', {
-        headers: {
-          'X-Auth-Token': process.env.REACT_APP_CODE,
-        },
-      })
-      .then((response) => {
-        dispatch(setLeaguesData(response.data.competitions));
-        dispatch(setLeaguesSearchResult(searchResult)); // need to add initializig to remove it
-      })
-      .finally(() => dispatch(setIsFetching(false)));
+    dispatch(getCompetitionsThunk());
   }, []);
 
   useEffect(() => {
     dispatch(setLeaguesSearchResult(searchResult));
-  }, [searchResult]);
+  }, [searchResult, props.isFetching]);
 
   return !props.isFetching ? (
     <div>

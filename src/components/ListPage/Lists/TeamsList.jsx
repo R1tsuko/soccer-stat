@@ -1,16 +1,9 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { ITEMS_ON_TEAMS_LIST_PAGE } from '../../../constants';
 import useQuery from '../../../hooks/useQuery';
-import {
-  selectTeams,
-  setIsFetching,
-  setTeamsData,
-  setTeamsSearchResult,
-} from '../../../slices/listSlice';
-import ErrorPage from '../../common/ErrorPage';
+import { getTeamsThunk, selectTeams, setTeamsSearchResult } from '../../../slices/listSlice';
 import LinkButton from '../../common/LinkButton/LinkButton';
 import Pages from '../../common/Pages';
 import classes from '../ListPage.module.css';
@@ -32,7 +25,6 @@ const TeamsListItem = (props) => {
 };
 
 const TeamsList = (props) => {
-  const [error, setError] = useState(null);
   const query = useQuery();
   const searchResult = query.get('search');
   const { leagueId } = useParams();
@@ -42,39 +34,19 @@ const TeamsList = (props) => {
   const teamsArr = teams.map((team) => <TeamsListItem team={team} key={team.id} />);
 
   useEffect(() => {
-    dispatch(setIsFetching(true));
-    axios
-      .get(`http://api.football-data.org/v2/competitions/${leagueId}/teams`, {
-        headers: {
-          'X-Auth-Token': process.env.REACT_APP_CODE,
-        },
-      })
-      .then(
-        (response) => {
-          dispatch(setTeamsData(response.data.teams));
-          dispatch(setTeamsSearchResult(searchResult)); // need to remove
-        },
-        (reject) => {
-          setError(reject.response.status);
-        }
-      )
-      .finally(() => dispatch(setIsFetching(false)));
+    dispatch(getTeamsThunk(leagueId));
   }, []);
 
   useEffect(() => {
     dispatch(setTeamsSearchResult(searchResult));
-  }, [searchResult]);
+  }, [searchResult, props.isFetching]);
 
-  return !error ? (
-    !props.isFetching ? (
-      <div>
-        <Pages numOfItems={numOfTeams} itemsOnPage={ITEMS_ON_TEAMS_LIST_PAGE} />
-        <div>{teamsArr}</div>
-      </div>
-    ) : null
-  ) : (
-    <ErrorPage message="This content is not available" />
-  );
+  return !props.isFetching ? (
+    <div>
+      <Pages numOfItems={numOfTeams} itemsOnPage={ITEMS_ON_TEAMS_LIST_PAGE} />
+      <div>{teamsArr}</div>
+    </div>
+  ) : null;
 };
 
 export default TeamsList;

@@ -28,6 +28,7 @@ const DateFilterInput = (props) => {
   return (
     <form onSubmit={onSubmitForm}>
       <span>
+        <label className={classes.label}>from</label>
         <input
           type="text"
           value={dateFrom}
@@ -39,6 +40,7 @@ const DateFilterInput = (props) => {
         />
       </span>
       <span>
+        <label className={classes.label}>to</label>
         <input
           type="text"
           value={dateTo}

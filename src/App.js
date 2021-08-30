@@ -14,7 +14,10 @@ function App() {
           <Route path="/leagues">
             <ListPage />
           </Route>
-          <Route path="/calendar">
+          <Route path="/calendar/team/:teamId">
+            <CalendarPage />
+          </Route>
+          <Route path="/calendar/league/:leagueId">
             <CalendarPage />
           </Route>
           <Route path="/">

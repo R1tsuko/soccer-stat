@@ -11,6 +11,10 @@
 }
 
 .scores {
-    color: white;
+    color: #da7b93;
     font-size: 15px;
+}
+
+.mainScore {
+    color:#da7b93;
 }
