@@ -8,7 +8,7 @@ import {
   setLeaguesSearchResult,
 } from '../../../slices/listSlice';
 import LinkButton from '../../common/LinkButton/LinkButton';
-import Pages from '../../common/Pages';
+import Pages from '../../common/Pages/Pages';
 import classes from '../ListPage.module.css';
 
 const LeaguesListItem = (props) => {

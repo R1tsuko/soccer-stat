@@ -5,7 +5,7 @@ import SearchForm from './SearchForm/SearchForm';
 import { Route, Switch } from 'react-router-dom';
 import TeamsList from './Lists/TeamsList';
 import { useSelector } from 'react-redux';
-import ErrorPage from '../common/ErrorPage';
+import ErrorPage from '../common/ErrorPage/ErrorPage';
 
 const ListPage = () => {
   const isFetching = useSelector((state) => state.list.isFetching);

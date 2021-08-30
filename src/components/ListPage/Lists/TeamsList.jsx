@@ -5,7 +5,7 @@ import { ITEMS_ON_TEAMS_LIST_PAGE } from '../../../constants';
 import useQuery from '../../../hooks/useQuery';
 import { getTeamsThunk, selectTeams, setTeamsSearchResult } from '../../../slices/listSlice';
 import LinkButton from '../../common/LinkButton/LinkButton';
-import Pages from '../../common/Pages';
+import Pages from '../../common/Pages/Pages';
 import classes from '../ListPage.module.css';
 
 const TeamsListItem = (props) => {

@@ -2,11 +2,16 @@ import React from 'react';
 import classes from './CalendarItem.module.css';
 
 const TeamsCalendarItem = (props) => {
-  debugger;
+  const score = props.match.score;
   return (
     <div className={classes.item}>
       <div className={classes.text}>
-        {props.match.homeTeam.name} vs {props.match.awayTeam.name}
+        {props.match.homeTeam.name}{' '}
+        <span className={classes.mainScore}>
+          {score.fullTime.homeTeam + score.extraTime.homeTeam}:
+          {score.fullTime.awayTeam + score.extraTime.awayTeam}
+        </span>{' '}
+        {props.match.awayTeam.name}
       </div>
       <div className={classes.text}>
         <img src={props.match.competition?.area.ensignUrl} />

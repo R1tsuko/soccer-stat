@@ -1,0 +1,15 @@
+.textContainer {
+    color: white;
+    border: 1px solid #da7b93;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+.pagesList {
+    text-align: left;
+    margin-left: 15px;
+}

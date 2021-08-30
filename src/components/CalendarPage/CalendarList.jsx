@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMatches } from '../../../api';
-import { ITEMS_ON_CALENDAR_PAGE } from '../../../constants';
-import useQuery from '../../../hooks/useQuery';
-import { selectMatches, setIsFetching, setMatchesData } from '../../../slices/calendarSlice';
-import ErrorPage from '../../common/ErrorPage';
-import Pages from '../../common/Pages';
+import { getMatches } from '../../api';
+import { ITEMS_ON_CALENDAR_PAGE } from '../../constants';
+import useQuery from '../../hooks/useQuery';
+import { selectMatches, setIsFetching, setMatchesData } from '../../slices/calendarSlice';
+import ErrorPage from '../common/ErrorPage/ErrorPage';
+import Pages from '../common/Pages/Pages';
 
 const Calendar = (props) => {
   const [error, setError] = useState(false);

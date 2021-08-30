@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import classes from './App.module.css';
 import CalendarPage from './components/CalendarPage/CalendarPage';
 import Header from './components/Header/Header';
+import HomePage from './components/HomePage/HomePage';
 import ListPage from './components/ListPage/ListPage';
 
 function App() {
@@ -11,6 +12,9 @@ function App() {
       <Header />
       <div className={classes.content}>
         <Switch>
+          <Route path="/home">
+            <HomePage />
+          </Route>
           <Route path="/leagues">
             <ListPage />
           </Route>
@@ -21,7 +25,7 @@ function App() {
             <CalendarPage />
           </Route>
           <Route path="/">
-            <Redirect to="/leagues?page=1" />
+            <Redirect to="/home" />
           </Route>
         </Switch>
       </div>

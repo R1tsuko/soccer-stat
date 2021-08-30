@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Switch, useParams } from 'react-router-dom';
-import Calendar from './Calendars/Calendar';
-import LeaguesCalendarItem from './Calendars/Items/LeaguesCalendarItem';
-import TeamsCalendarItem from './Calendars/Items/TeamsCalendarItem';
+import CalendarList from './CalendarList';
+import LeaguesCalendarItem from './Items/LeaguesCalendarItem';
+import TeamsCalendarItem from './Items/TeamsCalendarItem';
 import DateFilterInput from './DateFilterInput/DateFilterInput';
 
 const CalendarPage = () => {
@@ -14,14 +14,14 @@ const CalendarPage = () => {
       <DateFilterInput disabled={isFetching} />
       <Switch>
         <Route path="/calendar/team">
-          <Calendar
+          <CalendarList
             url={`teams/${teamId}/matches`}
             isFetching={isFetching}
             item={TeamsCalendarItem}
           />
         </Route>
         <Route path="/calendar/league">
-          <Calendar
+          <CalendarList
             url={`competitions/${leagueId}/matches`}
             isFetching={isFetching}
             item={LeaguesCalendarItem}
