@@ -4,7 +4,7 @@ import classes from './HomePage.module.css';
 const HomePage = () => {
   return (
     <div className={classes.textContainer}>
-      <h2>This app uses free API: https://www.football-data.org/</h2>
+      <h2>This app uses free API: football-data.org</h2>
       <div className={classes.pagesList}>
         <h3>Available pages:</h3>
         <ul>

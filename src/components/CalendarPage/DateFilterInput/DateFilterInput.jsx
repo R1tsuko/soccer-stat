@@ -3,16 +3,20 @@ import { useHistory } from 'react-router-dom';
 import classes from './DateFilterInput.module.css';
 import searchIcon from '../../../images/searchIcon.png';
 
+const testDate = (date) => {
+  return /^\d{0,4}$|^\d{4}-\d{0,2}$|^\d{4}-\d{2}-\d{0,2}$/.test(date);
+};
+
 const DateFilterInput = (props) => {
   const [dateFrom, setDateFrom] = useState('');
   const [dateTo, setDateTo] = useState('');
   const history = useHistory();
 
   const onChangeDateFrom = (e) => {
-    setDateFrom(e.target.value);
+    testDate(e.target.value) ? setDateFrom(e.target.value) : 0;
   };
   const onChangeDateTo = (e) => {
-    setDateTo(e.target.value);
+    testDate(e.target.value) ? setDateTo(e.target.value) : 0;
   };
 
   const onSubmitForm = (e) => {
@@ -33,7 +37,6 @@ const DateFilterInput = (props) => {
           type="text"
           value={dateFrom}
           onChange={onChangeDateFrom}
-          pattern="\d\d\d\d-\d\d-\d\d"
           placeholder="YYYY-MM-DD"
           disabled={props.disabled}
           className={classes.dateInput}
@@ -45,7 +48,6 @@ const DateFilterInput = (props) => {
           type="text"
           value={dateTo}
           onChange={onChangeDateTo}
-          pattern="\d\d\d\d-\d\d-\d\d"
           placeholder="YYYY-MM-DD"
           disabled={props.disabled}
           className={classes.dateInput}

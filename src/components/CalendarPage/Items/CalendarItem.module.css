@@ -1,13 +1,10 @@
-.text {
-    color: white;
-}
-
-.text img{
+.item img{
     width: 20px;
 }
 
 .item{
     padding: 5px;
+    color: white;
 }
 
 .scores {

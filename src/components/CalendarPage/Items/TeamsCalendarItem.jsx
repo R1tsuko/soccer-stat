@@ -5,7 +5,7 @@ const TeamsCalendarItem = (props) => {
   const score = props.match.score;
   return (
     <div className={classes.item}>
-      <div className={classes.text}>
+      <div>
         {props.match.homeTeam.name}{' '}
         <span className={classes.mainScore}>
           {score.fullTime.homeTeam + score.extraTime.homeTeam}:
@@ -13,11 +13,11 @@ const TeamsCalendarItem = (props) => {
         </span>{' '}
         {props.match.awayTeam.name}
       </div>
-      <div className={classes.text}>
+      <div>
         <img src={props.match.competition?.area.ensignUrl} />
         {props.match.competition?.name}
       </div>
-      <div className={classes.text}>start: {props.match.utcDate}</div>
+      <div>start: {props.match.utcDate}</div>
       <div className={classes.scores}>
         <span>
           {props.match.score.halfTime.homeTeam === null ? '-' : props.match.score.halfTime.homeTeam}
