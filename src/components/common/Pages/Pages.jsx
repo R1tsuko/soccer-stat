@@ -10,7 +10,7 @@ const Pages = (props) => {
   for (let i = 1; i <= Math.ceil(props.numOfItems / props.itemsOnPage); ++i) {
     query.set('page', i);
     pagesArr.push(
-      <span className={classes.pageLink}>
+      <span className={classes.pageLink} key={i}>
         <NavLink to={loc.pathname + '?' + query.toString()}>{i} </NavLink>
       </span>
     );
